@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background: #000;
+            margin: auto
+        }
+
+        .container {
+            width: 30%;
+            height: 5vh;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .button {
+            width: 50px;
+            height: 50px;
+
+        }
+
+        .bg-red {
+            background-color: red;
+
+        }
+
+        .bg-blue {
+            background-color: blue;
+
+        }
+
+        .bg-green {
+            background-color: lightgreen;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class='btn ' type="button" date-color="red" data-rank="1">變變變 變紅色</button>
+        <button class='btn ' type="button" date-color="blue">變變變 變藍色</button>
+        <button class='btn ' type="button" date-color="green">變變變 變綠色</button>
+    </div>
+    <div class="box"></div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        // bind JQuery方式
+
+        const btn = $('.btn');
+
+        // const myBtnR = $('.myBtnR')
+        // console.log('myBtnR', myBtnR);
+
+        // const myBtnB = $('.myBtnB')
+        // console.log('myBtnR', myBtnB);
+
+        // const myBtnG = $('.myBtnG')
+        // console.log('myBtnG', myBtnG);
+
+        const myBox = $('.box')
+        console.log('myBox', myBox);
+
+
+        // action
+
+        btn.click(function () {
+            let tmpColor = $(this).attr("date-color");
+            let tmpRank = $(this).attr("date-rank")
+            myBox.attr('class', `box bg-${tmpColor}`);
+        })
+
+        myBtnR.click(function () {
+            console.log('myBtnR OK')
+            let tmpColor = $(this).attr("date-color");
+            myBox.attr('class', `box bg-${tmpColor}`);
+        })
+
+
+        myBtnB.click(function () {
+            let tmpColor = $(this).attr("date-color");
+            myBox.attr('class', `box bg-${tmpColor}`);
+        })
+
+        myBtnG.click(function () {
+            let tmpColor = $(this).attr("date-color")
+            myBox.attr('class', `box bg-${tmpColor}`);
+        })
+
+
+    </script>
+</body>
+
+</html>

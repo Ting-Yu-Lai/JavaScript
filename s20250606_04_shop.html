@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yu-Shop</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        header {
+            width: 100%;
+            height: 10vh;
+            background-color: gray;
+            padding-left: 30px;
+            padding-top: 20px;
+            font-family: '標楷體';
+        }
+
+        .main {
+            width: 50%;
+            height: 85vh;
+            margin: auto;
+            background-color: lightblue;
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: flex-start; */
+
+        }
+
+        .item-header {
+            width: 100%;
+            height: 7vh;
+            background-color: white;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .item-header>div {
+            width: calc(100% / 6);
+            height: 100%;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item-row {
+            width: 100%;
+            height: 10vh;
+            background-color: white;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+
+        .item-row>div {
+            width: calc(100% / 6);
+            height: 100%;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item-pic {
+            background-image: url(./images/villa.jpg);
+            background-size: contain;
+        }
+
+        input {
+            width:50%;
+        }
+
+        footer {
+            width: 100%;
+            height: 5vh;
+            background-color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>育 の商店</h1>
+    </header>
+    <div class="main">
+        <div class="item-header">
+            <div>編號</div>
+            <div>商品名稱</div>
+            <div>圖片</div>
+            <div>單價</div>
+            <div>數量</div>
+            <div>總價</div>
+        </div>
+        <div class="item-row">
+            <div>No.245</div>
+            <div>別墅</div>
+            <div class="item-pic"></div>
+            <div>
+                58888888
+            </div>
+            <div>
+                <input date-price="58888888" type="number" name="myAmount" id="myAmount" value="1">
+            </div>
+            <div >
+                <p id="myTotal">
+                    $
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Akuma-Yu 版權所有
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        // bind
+        const myAmount = $('#myAmount');
+        const myTotal = $('#myTotal');
+
+        // action
+        myAmount.change(function(){
+            // console.log('myAmount ok');
+            let tmpAmount = Number(myAmount.val());
+            let tmpPrice = Number(myAmount.attr('date-price'));
+            console.log('Amount', tmpAmount);
+            console.log('Price', tmpPrice);
+            let result = tmpAmount * tmpPrice;
+            console.log('result', result);
+            myTotal.text(`${result}$`);
+        })
+
+    </script>
+</body>
+
+</html>
