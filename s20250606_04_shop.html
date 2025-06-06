@@ -24,7 +24,7 @@
             width: 50%;
             height: 85vh;
             margin: auto;
-            background-color: lightblue;
+            /* background-color: lightblue; */
             display: flex;
             flex-wrap: wrap;
             /* justify-content: flex-start; */
@@ -70,13 +70,12 @@
             align-items: center;
         }
 
-        .item-pic {
-            background-image: url(./images/villa.jpg);
-            background-size: contain;
+        img {
+            max-width: 90%;
         }
 
         input {
-            width:50%;
+            width: 50%;
         }
 
         footer {
@@ -106,15 +105,107 @@
         <div class="item-row">
             <div>No.245</div>
             <div>別墅</div>
-            <div class="item-pic"></div>
+            <div>
+                <img src="./images/villa.jpg" alt="villa">
+            </div>
             <div>
                 58888888
             </div>
             <div>
-                <input date-price="58888888" type="number" name="myAmount" id="myAmount" value="1">
+                <input class="myAmount" date-price="58888888" type="number" name="myAmount" value="1">
             </div>
-            <div >
-                <p id="myTotal">
+            <div>
+                <p class="myTotal">
+                    $
+                </p>
+            </div>
+        </div>
+        <div class="item-row">
+            <div>No.246</div>
+            <div>家用KTV</div>
+            <div>
+                <img src="./images/KTV.jpg" alt="KTV">
+            </div>
+            <div>
+                33000
+            </div>
+            <div>
+                <input class="myAmount" date-price="33000" type="number" name="myAmount" ivalue="1">
+            </div>
+            <div>
+                <p class="myTotal">
+                    $
+                </p>
+            </div>
+        </div>
+        <div class="item-row">
+            <div>No.247</div>
+            <div>銀龍魚</div>
+            <div>
+                <img src="./images/fish.jpg" alt="fish">
+            </div>
+            <div>
+                188000
+            </div>
+            <div>
+                <input class="myAmount" date-price="188000" type="number" name="myAmount" ivalue="1">
+            </div>
+            <div>
+                <p class="myTotal">
+                    $
+                </p>
+            </div>
+        </div>
+        <div class="item-row">
+            <div>No.248</div>
+            <div>茶具</div>
+            <div>
+                <img src="./images/teacup.jpg" alt="teacup">
+            </div>
+            <div>
+                88000
+            </div>
+            <div>
+                <input class="myAmount" date-price="88000" type="number" name="myAmount" ivalue="1">
+            </div>
+            <div>
+                <p class="myTotal">
+                    $
+                </p>
+            </div>
+        </div>
+        <div class="item-row">
+            <div>No.248</div>
+            <div>文房四寶</div>
+            <div>
+                <img src="./images/pen.jpg" alt="pen">
+            </div>
+            <div>
+                8888
+            </div>
+            <div>
+                <input class="myAmount" date-price="8888" type="number" name="myAmount" ivalue="1">
+            </div>
+            <div>
+                <p class="myTotal">
+                    $
+                </p>
+            </div>
+        </div>
+        <div class="item-row">
+            <div>No.248</div>
+            <div>大展鴻圖</div>
+            <div>
+                <img src="./images/bigbird.jpg" alt="bigbird">
+            </div>
+            <div>
+                88888888888
+            </div>
+            <div>
+                <input class="myAmount" date-price="88888888888" type="number" name="myAmount" ivalue="1">
+            </div>
+            <div>
+                <p class="myTotal">
                     $
                 </p>
             </div>
@@ -131,19 +222,27 @@
 
     <script>
         // bind
-        const myAmount = $('#myAmount');
-        const myTotal = $('#myTotal');
+        const myAmount = $('.myAmount');
+        const myTotal = $('.myTotal');
 
         // action
-        myAmount.change(function(){
+        myAmount.change(function () {
             // console.log('myAmount ok');
-            let tmpAmount = Number(myAmount.val());
-            let tmpPrice = Number(myAmount.attr('date-price'));
+            let tmpAmount = Number($(this).val());
+            let tmpPrice = Number($(this).attr('date-price'));
             console.log('Amount', tmpAmount);
             console.log('Price', tmpPrice);
             let result = tmpAmount * tmpPrice;
             console.log('result', result);
-            myTotal.text(`${result}$`);
+            // myTotal.text(`${result}$`);
+
+            // this要注意
+            // let tmpTotalParent = myTotal.parent().parent();
+            let tmpTotalParent = $(this).parent().parent();
+            console.log('tmpTotalParent', tmpTotalParent);
+            let tmpTotal = tmpTotalParent.find('.myTotal');
+            console.log('tmpTotal', tmpTotal);
+            tmpTotal.text(`${result}$`);
         })
 
     </script>
