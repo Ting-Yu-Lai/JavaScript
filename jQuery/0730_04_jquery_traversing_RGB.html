@@ -1,71 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<style>
-    .Box {
-        width: 70%;
-        height: 10vh;
-        border: 3px solid black;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        margin-top:10px;
-    }
-</style>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQueryPratice</title>
+    <title>Document</title>
+    <!-- 載入bs5 css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.rtl.min.css"
-        integrity="sha512-yZC61UaBAUGIbs/YDvp3XLZsh29taG1brQrFFJiCPHv+BoA6oETW0Zuc1xDKYHW/U3yZr/rqoiUZZG+iVOmB7w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .box {
+            width: 100%;
+            height: 30vh;
+            border: 1px solid black;
+        }
+    </style>
+
 </head>
 
 <body>
-    <div class="Box">
-        <button type="button" class="btn btn-danger btn-class" id="redBtn">Danger</button>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="box">
+                    <button type="button" class="btn btn-primary" id="blueBtn">blueBtn</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="box">
+                    <button type="button" class="btn btn-danger" id="redBtn">redBtn</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="box">
+                    <button type="button" class="btn btn-success" id="greenBtn">greenBtn</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="Box">
-        <button type="button" class="btn btn-primary btn-class" id="blueBtn">Primary</button>
-    </div>
-    <div class="Box">
-        <button type="button" class="btn btn-success " id="greenBtn">Success</button>
-    </div>
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const blueBtn = $("#blueBtn");
+            const redBtn = $("#redBtn");
+            console.log('blueBtn', blueBtn);
+
+            // 2.action
+            // mySpan click
+            blueBtn.click(function (e) {
+                console.log('blueBtn click ok');
+                let btnBox = $(this).parent();
+                console.log('btnBox', btnBox);
+                btnBox.attr('class', 'box bg-primary');
+            });
+
+            redBtn.click(function (e) {
+                console.log('redBtn click ok');
+                let btnBox = $(this).parent();
+                console.log('btnBox', btnBox);
+                btnBox.attr('class', 'box bg-danger');
+            });
+
+        });
+    </script>
 </body>
 
 </html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
-    integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    $(document).ready(function () {
-        // jquery method 只能用在 jquery object
-        // 1.bind
-        const redBtn = $('#redBtn');
-        const blueBtn = $('#blueBtn');
-        const greenBtn = $('#greenBtn');
-        // console.log('redBox', redBox);
-
-        // 2.action
-        redBtn.click(function (e) {
-            console.log('redbtn parent',$('#redBtn').parent());
-            $('#redBtn').parent().css('background-color','red');
-        })
-        blueBtn.click(function (e) {
-            $('#blueBtn').parent().css('background-color','blue');
-        })
-        greenBtn.click(function (e) {
-            $('#greenBtn').parent().css('background-color','green');
-        })
-
-
-    })
-
-</script>
